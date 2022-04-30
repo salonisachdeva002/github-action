@@ -1,13 +1,29 @@
+# name: learn-github-actions
+# on: [push]
+# jobs:
+#   check-python-version:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v3
+#       - uses: actions/setup-python@v3
+#         with:
+#           python-version: '3.9'
+#       - run: python --version
+#       - name: python script
+#         run:  python python.py
+
 name: learn-github-actions
 on: [push]
 jobs:
-  check-python-version:
-    runs-on: ubuntu-latest
+ check-python-version:
+  strategy: 
+   matrix:
+    os: [ubuntu-latest,windows latest,macos-latest]
+    runs-on: ${{matrix.os}}
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v3
-        with:
-          python-version: '3.9'
-      - run: python --version
-      - name: python script
-        run:  python python.py
+     - uses: actions/checkout@v3
+     - uses: actions/setup-python@v3 
+     with: 
+     python-version: '3.6'
+     - run: python --version
+
