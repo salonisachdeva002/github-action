@@ -12,19 +12,35 @@
 #       - name: python script
 #         run:  python python.py
 
-name: learn-github-actions
-on: [push]
+# name: learn-github-actions
+# on: [push]
+# jobs:
+#  check-python-version:
+#   strategy: 
+#    matrix:
+#     os: [ubuntu-latest,windows latest,macos-latest]
+#     runs-on: ${{matrix.os}}
+#      steps:
+#       - uses: actions/checkout@v3
+#       - uses: actions/setup-python@v3 
+#      with: 
+#       python-version: '3.6'
+#       - run: python --version
+
+
+name: main
+on: push
+env:
+  name1: "rajni"
+  name2: "saloni"
 jobs:
- check-python-version:
-  strategy: 
-   matrix:
-    os: [ubuntu-latest,windows latest,macos-latest]
-    runs-on: ${{matrix.os}}
-     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v3 
-     with: 
-      python-version: '3.6'
-      - run: python --version
-
-
+ job1:
+   runs-on: ubuntu-latest
+   steps:
+     - name: step 1
+       run: echo "The name1 is:$name1"
+  job2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: step 2 
+       run: echo "The name2 is:$name2"
