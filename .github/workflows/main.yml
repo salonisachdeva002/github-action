@@ -30,7 +30,6 @@
 
 name: main
 on: push
-
 jobs:
 env:
   name1: "rajni"
