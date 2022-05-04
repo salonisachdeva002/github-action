@@ -27,18 +27,32 @@
 #       python-version: '3.6'
 #       - run: python --version
 
-name: main
-on: push
+# name: main
+# on: push
+# jobs:
+#  job1:
+#    runs-on: ubuntu-latest
+#    env:
+#     name1: "saloni"
+#    steps:
+#      - name: step 1
+#        run: echo "The name1 is:$name1"
+#  job2:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: step 2 
+#        run: echo "The name2 is:$name2"
+
+
+name: First Cron Job
+on:
+  schedule:
+   - cron: "*/1 * * * *"
 jobs:
- job1:
-   runs-on: ubuntu-latest
-   env:
-    name1: "saloni"
-   steps:
-     - name: step 1
-       run: echo "The name1 is:$name1"
- job2:
-   runs-on: ubuntu-latest
-   steps:
-     - name: step 2 
-       run: echo "The name2 is:$name2"
+build:
+  runs-on: ubuntu-latest
+  steps:
+    - uses: action/checkout@v1
+    - name: Run a one-line script
+      run: echo Hello, world!
+
