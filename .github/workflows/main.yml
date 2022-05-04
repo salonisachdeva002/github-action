@@ -26,14 +26,14 @@
 #      with: 
 #       python-version: '3.6'
 #       - run: python --version
+
 name: main
 on: push
 jobs:
-env:
-  name1: "rajni"
-  name2: "saloni"
  job1:
    runs-on: ubuntu-latest
+   env:
+    name1: "saloni"
    steps:
      - name: step 1
        run: echo "The name1 is:$name1"
